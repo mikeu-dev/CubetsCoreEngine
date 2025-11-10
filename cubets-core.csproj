@@ -9,12 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
     <PackageReference Include="MySqlConnector.DependencyInjection" Version="2.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Modules\GameState\" />
-    <Folder Include="Modules\Score\" />
   </ItemGroup>
 
 </Project>
