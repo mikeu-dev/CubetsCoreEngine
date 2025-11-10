@@ -4,18 +4,15 @@ using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("ConnectionStrings")!);
+builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
 
 builder.Services.AddSignalR();
-
-builder.Services.AddScoped<ScoreService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
