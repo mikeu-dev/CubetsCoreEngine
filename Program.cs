@@ -3,6 +3,8 @@ using cubets_core.Data;
 using cubets_core.Helpers;
 using cubets_core.Hubs;
 using cubets_core.Modules.Auth.Services;
+using cubets_core.Modules.Player.Services;
+using cubets_core.Modules.Score.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +22,8 @@ builder.Services.AddDbContext<CubetsDbContext>(options =>
 builder.Services.AddScoped<IResponseService, ResponseService>();
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<PlayerService>();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(opt =>
     {
