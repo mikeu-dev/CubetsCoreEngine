@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace cubets_core.Modules.Player.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/player")]
     public class PlayerController : ControllerBase
     {
         private readonly IResponseService _response;
@@ -18,10 +18,10 @@ namespace cubets_core.Modules.Player.Controllers
             _playerService = playerService;
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<PlayerDTO> GetPlayer(int id)
+        [HttpGet("{playerId}")]
+        public ActionResult<PlayerDTO> GetPlayer(int playerId)
         {
-            var playerDto = _playerService.GetPlayerDto(id);
+            var playerDto = _playerService.GetPlayerDto(playerId);
             if (playerDto == null) return NotFound(_response.Fail<object>("Player Not Found!"));
 
             return Ok(_response.Success(playerDto, "Get Player Data Is Successful!"));
