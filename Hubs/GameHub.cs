@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace cubets_core.Hubs
 {
-    public class GameHub: Hub
+    public class GameHub : Hub<IGameClient>
     {
         public async Task SendPlayerState(PlayerState state)
         {
-            await Clients.Others.SendAsync("ReceivePlayerState", state);
+            await Clients.Others.ReceivePlayerState(state);
         }
     }
 }
